@@ -1,6 +1,6 @@
 # Portfolio de Caner Alpyuruk
 
-Portfolio de compétences du BUT Gestion administrative et commerciale des organisations (GACO), parcours Management commercial et marketing omnicanal (MCMO), suivi à l'IUT Nord Franche-Comté.
+Portfolio de compétences du BUT Gestion administrative et commerciale des organisations (GACO), parcours Management commercial et marketing omnicanal (MCMO), commencé à l’IUT de Reims-Châlons-Charleville et poursuivi à l’IUT Nord Franche-Comté.
 
 Version en ligne : https://alpyurukcaner-lang.github.io/Portfolio/
 
