@@ -81,6 +81,93 @@ if (dd) {
   }
 }
 
+/* ---------- stories à la une (accueil), comme sur Instagram ---------- */
+{
+const dlg = $('#story');
+if (dlg && typeof dlg.showModal === 'function') {
+  const DUR = 6500;
+  const auto = !calm.matches;
+  const bars = $('.st-bars', dlg), box = $('.st-slides', dlg), title = $('#st-title'), live = $('.st-live', dlg);
+  const pauseBtn = $('.st-pause', dlg), frame = $('.st-frame', dlg);
+  let slides = [], i = 0, t0 = 0, elapsed = 0, raf = 0, paused = false, held = false, downT = 0, longPress = false;
+  const KEY = 'ca-stories-vues';
+  const seen = (() => { try { return new Set(JSON.parse(localStorage.getItem(KEY) || '[]')); } catch (e) { return new Set(); } })();
+  const markSeen = id => {
+    seen.add(id);
+    try { localStorage.setItem(KEY, JSON.stringify([...seen])); } catch (e) { /* stockage indisponible : sans effet */ }
+    for (const a of $$(`.igl[data-story="${id}"]`)) a.classList.add('seen');
+  };
+  for (const a of $$('.igl[data-story]')) if (seen.has(a.dataset.story)) a.classList.add('seen');
+  const fill = (k, f) => { const b = bars.children[k]; if (b) b.firstElementChild.style.transform = `scaleX(${f})`; };
+  const show = k => {
+    i = clamp(k, 0, slides.length - 1);
+    slides.forEach((sl, n) => { sl.hidden = n !== i; fill(n, n < i ? 1 : 0); });
+    if (!auto) fill(i, 1);
+    live.textContent = `Diapositive ${i + 1} sur ${slides.length}`;
+    elapsed = 0;
+    t0 = performance.now();
+  };
+  const next = () => { if (i < slides.length - 1) show(i + 1); else dlg.close(); };
+  const prev = () => show(i - 1);
+  const tick = now => {
+    if (!dlg.open) return;
+    if (auto && !paused && !held && !d.hidden) {
+      elapsed += now - t0;
+      fill(i, Math.min(1, elapsed / DUR));
+      if (elapsed >= DUR) next();
+    }
+    t0 = now;
+    raf = requestAnimationFrame(tick);
+  };
+  const setPause = p => {
+    paused = p;
+    pauseBtn.setAttribute('aria-pressed', String(p));
+    pauseBtn.setAttribute('aria-label', p ? 'Reprendre' : 'Mettre en pause');
+  };
+  const open = id => {
+    const tpl = $(`#st-${id}`);
+    if (!tpl) return false;
+    box.replaceChildren(tpl.content.cloneNode(true));
+    slides = $$('.sty', box);
+    bars.replaceChildren(...slides.map(() => { const b = d.createElement('span'); b.append(d.createElement('i')); return b; }));
+    title.textContent = tpl.dataset.label;
+    dlg.dataset.k = id;
+    setPause(false);
+    root.classList.add('st-open');
+    dlg.showModal();
+    show(0);
+    cancelAnimationFrame(raf);
+    t0 = performance.now();
+    raf = requestAnimationFrame(tick);
+    markSeen(id);
+    return true;
+  };
+  for (const a of $$('.igl[data-story]')) {
+    a.setAttribute('aria-haspopup', 'dialog');
+    a.addEventListener('click', e => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+      if (open(a.dataset.story)) e.preventDefault();
+    });
+  }
+  /* appui long : pause, comme sur Instagram ; un simple toucher passe à la suite */
+  frame.addEventListener('pointerdown', e => { if (!e.target.closest('a, .st-head button')) { held = true; downT = performance.now(); } });
+  const release = () => { if (held) longPress = performance.now() - downT > 350; held = false; };
+  addEventListener('pointerup', release);
+  addEventListener('pointercancel', release);
+  const nav = f => () => { if (longPress) { longPress = false; return; } f(); };
+  $('.st-next', dlg).addEventListener('click', nav(next));
+  $('.st-prev', dlg).addEventListener('click', nav(prev));
+  $('.st-close', dlg).addEventListener('click', () => dlg.close());
+  pauseBtn.addEventListener('click', () => setPause(!paused));
+  dlg.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+  });
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', () => { cancelAnimationFrame(raf); root.classList.remove('st-open'); box.replaceChildren(); });
+}
+}
+
 /* ---------- apparitions au défilement ---------- */
 const revealer = new IntersectionObserver(entries => {
   for (const e of entries) {
