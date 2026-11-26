@@ -4,7 +4,7 @@ Portfolio de compétences du BUT Gestion administrative et commerciale des organ
 
 Version en ligne : https://alpyurukcaner-lang.github.io/Portfolio/
 
-La page tient dans un seul fichier, `index.html`. L'image `apercu.png` s'affiche quand le lien est partagé sur LinkedIn, et le dossier `fonts` contient la police Schibsted Grotesk, distribuée sous licence SIL Open Font License (voir `fonts/OFL.txt`).
+La page tient dans un seul fichier, `index.html`, sans dépendance externe : styles et script sont intégrés, et l'accueil présente une maquette en volume des 64 apprentissages critiques, dessinée en SVG. L'image `apercu.png` s'affiche quand le lien est partagé sur LinkedIn. Le dossier `fonts` contient la police Hanken Grotesk, distribuée sous licence SIL Open Font License (voir `fonts/OFL-hanken-grotesk.txt`). Les captures existent en deux tailles : l'originale et une variante de 640 pixels (`-640.webp`) pour les petits écrans.
 
 Les documents du dossier (`docs/`) et les captures (`traces/`) sont anonymisés : les noms des camarades, de la tutrice, des enseignants, des salariés et des personnes rencontrées en stage ou en alternance sont masqués ou remplacés par leur rôle, et les coordonnées personnelles sont retirées.
 
