@@ -1,6 +1,6 @@
 # Portfolio de Caner Alpyuruk
 
-Portfolio de compétences du BUT Gestion administrative et commerciale des organisations (GACO), parcours Management commercial et marketing omnicanal (MCMO), commencé à l’IUT de Reims-Châlons-Charleville et poursuivi à l’IUT Nord Franche-Comté.
+Portfolio qui regroupe mes deux formations : la licence, un BUT Gestion administrative et commerciale des organisations (GACO), parcours Management commercial et marketing omnicanal (MCMO), suivi à l’IUT de Reims-Châlons-Charleville puis à l’IUT Nord Franche-Comté, et le Master Entrepreneuriat et management de projets de l’Université de Haute-Alsace, en cours.
 
 Version en ligne : https://alpyurukcaner-lang.github.io/Portfolio/
 
@@ -8,7 +8,8 @@ Version en ligne : https://alpyurukcaner-lang.github.io/Portfolio/
 
 Le site est statique : chaque page est un fichier `index.html` dans son propre dossier, ce qui donne des adresses lisibles qui se rechargent et se partagent.
 
-- `index.html` : l’accueil, avec la maquette en volume des 64 apprentissages critiques.
+- `index.html` : l’accueil, une seule page sur la photo : la présentation, puis deux entrées, Licence GACO et Master EMP.
+- `licence/` : la vue d’ensemble de la licence (BUT GACO, parcours MCMO) : cinq compétences, trois années et projets phares.
 - `a-propos/` : parcours, valeurs de travail et chronologie.
 - `competences/` : les compétences des deux diplômes. `competences/master-emp/` présente les huit blocs du Master Entrepreneuriat et management de projets (fiche nationale RNCP42354), en cours. Les cinq compétences du BUT GACO MCMO ont chacune leur page, plus une page par niveau (`niveau-1/`, `niveau-2/`, `niveau-3/`) avec les apprentissages critiques, les traces et le bilan du niveau. `competences/referentiel/` réunit les 64 apprentissages, avec une recherche.
 - `experiences/` : l’alternance et les deux stages, chacun sur sa page.

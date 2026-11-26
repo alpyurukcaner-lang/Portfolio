@@ -12,9 +12,14 @@ const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
 /* ---------- anciennes adresses de la page unique : #ac-…, #bc1, #annee2… ---------- */
 const old = $('#old-anchors');
-if (old && location.hash.length > 1) {
-  const to = JSON.parse(old.textContent)[decodeURIComponent(location.hash.slice(1))];
-  if (to) location.replace(to);
+if (old) {
+  const go = () => {
+    if (location.hash.length < 2) return;
+    const to = JSON.parse(old.textContent)[decodeURIComponent(location.hash.slice(1))];
+    if (to) location.replace(to);
+  };
+  go();
+  addEventListener('hashchange', go);
 }
 
 /* ---------- en-tête, menu mobile ---------- */
