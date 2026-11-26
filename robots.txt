@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alpyurukcaner-lang.github.io/Portfolio/sitemap.xml

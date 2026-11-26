@@ -4,8 +4,25 @@ Portfolio de compétences du BUT Gestion administrative et commerciale des organ
 
 Version en ligne : https://alpyurukcaner-lang.github.io/Portfolio/
 
-La page tient dans un seul fichier, `index.html`, sans dépendance externe : styles et script sont intégrés, et l'accueil présente une maquette en volume des 64 apprentissages critiques, dessinée en SVG. L'image `apercu.png` s'affiche quand le lien est partagé sur LinkedIn. Le dossier `fonts` contient la police Hanken Grotesk, distribuée sous licence SIL Open Font License (voir `fonts/OFL-hanken-grotesk.txt`). Les captures existent en deux tailles : l'originale et une variante de 640 pixels (`-640.webp`) pour les petits écrans.
+## Organisation du site
 
-Les documents du dossier (`docs/`) et les captures (`traces/`) sont anonymisés : les noms des camarades, de la tutrice, des enseignants, des salariés et des personnes rencontrées en stage ou en alternance sont masqués ou remplacés par leur rôle, et les coordonnées personnelles sont retirées.
+Le site est statique : chaque page est un fichier `index.html` dans son propre dossier, ce qui donne des adresses lisibles qui se rechargent et se partagent.
 
-Les trois années sont documentées. Pour la deuxième et la troisième année, le rapport de stage, le rapport de missions d’alternance, les rapports de SAÉ 5.01 et 6.01, les comptes rendus et les pièces de marché de l’Hôpital Nord Franche-Comté ne sont pas publiés, car ce sont des documents internes : la page n’en reprend que les missions, des ordres de grandeur et des captures sans données de consommation ni de dépense.
+- `index.html` : l’accueil, avec la maquette en volume des 64 apprentissages critiques.
+- `a-propos/` : parcours, valeurs de travail et chronologie.
+- `competences/` : les cinq domaines de compétence. Chaque domaine a sa page, plus une page par niveau (`niveau-1/`, `niveau-2/`, `niveau-3/`) avec les apprentissages critiques, les traces et le bilan du niveau. `competences/referentiel/` réunit les 64 apprentissages, avec une recherche.
+- `experiences/` : l’alternance et les deux stages, chacun sur sa page.
+- `projets/` : la galerie, avec ses filtres, et huit études de cas.
+- `404.html`, `sitemap.xml`, `robots.txt`.
+
+Les anciennes adresses de la page unique (`#ac-31-06`, `#bc5`, `#annee2`…) redirigent vers la page correspondante.
+
+## Ressources
+
+- `assets/site.css` et `assets/site.js` : la feuille de style et le script communs à toutes les pages.
+- `assets/scenes.js` : les scènes 3D (Three.js, licence MIT), chargées seulement sur les pages qui en ont une, quand l’appareil le permet. Avec le mouvement réduit, l’économie de données ou un petit processeur, une image fixe (`assets/posters/`) les remplace.
+- `assets/land.json` : les points du globe, d’après Natural Earth (domaine public).
+- `fonts/` : la police Hanken Grotesk, sous licence SIL Open Font License.
+- `apercu.png` : l’image affichée quand un lien est partagé.
+
+Les documents (`docs/`) et les captures (`traces/`) sont anonymisés : les noms des camarades, de la tutrice, des enseignants et des salariés sont masqués ou remplacés par leur rôle, et les coordonnées personnelles sont retirées.
