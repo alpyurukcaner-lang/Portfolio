@@ -10,7 +10,7 @@ Le site est statique : chaque page est un fichier `index.html` dans son propre d
 
 - `index.html` : l’accueil, avec la maquette en volume des 64 apprentissages critiques.
 - `a-propos/` : parcours, valeurs de travail et chronologie.
-- `competences/` : les cinq domaines de compétence. Chaque domaine a sa page, plus une page par niveau (`niveau-1/`, `niveau-2/`, `niveau-3/`) avec les apprentissages critiques, les traces et le bilan du niveau. `competences/referentiel/` réunit les 64 apprentissages, avec une recherche.
+- `competences/` : les compétences des deux diplômes. `competences/master-emp/` présente les huit blocs du Master Entrepreneuriat et management de projets (fiche nationale RNCP42354), en cours. Les cinq compétences du BUT GACO MCMO ont chacune leur page, plus une page par niveau (`niveau-1/`, `niveau-2/`, `niveau-3/`) avec les apprentissages critiques, les traces et le bilan du niveau. `competences/referentiel/` réunit les 64 apprentissages, avec une recherche.
 - `experiences/` : l’alternance et les deux stages, chacun sur sa page.
 - `projets/` : la galerie, avec ses filtres, et huit études de cas.
 - `404.html`, `sitemap.xml`, `robots.txt`.
