@@ -974,3 +974,7 @@ html.st-open{overflow:hidden}
 .facts+.portrait{margin-top:28px;max-width:360px}
 .open .top .navcta.mob{display:none}
 .open .top .navcta.mob+.menu{margin-left:auto}
+
+/* titres de sous-section dans la colonne de droite : alignés sur le titre de gauche */
+.h3s.first{margin-top:0}
+.ml+.chips{margin-bottom:6px}
