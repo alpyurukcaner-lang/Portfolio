@@ -897,6 +897,7 @@ html.st-open{overflow:hidden}
   .igs b{font-size:19px}
   .ig-name{font-size:30px}
   .ig-btns .btn{flex:1 1 0}
+  .ig-btns .btn.primary{flex-basis:100%}
   .igg{gap:2px}
   .igo{padding:22px 7px 7px}
   .igo b{font-size:11.5px;-webkit-line-clamp:2}
@@ -978,8 +979,16 @@ html.st-open{overflow:hidden}
 /* titres de sous-section dans la colonne de droite : alignés sur le titre de gauche */
 .h3s.first{margin-top:0}
 .ml+.chips{margin-bottom:6px}
-.xmore{display:grid;grid-template-columns:minmax(0,.45fr) minmax(0,1.55fr);gap:12px clamp(24px,4vw,64px);margin:6px 0 0 clamp(28px,4vw,56px);padding-top:34px}
-.xmore h3{font-size:clamp(19px,1.6vw,22px);font-weight:600;letter-spacing:-.015em;line-height:1.3}
-.xmore .sub{margin-top:8px}
-.xmore .tl{margin-top:0}
-@media(max-width:900px){.xmore{grid-template-columns:minmax(0,1fr);margin-left:0}}
+/* parcours : missions de chaque expérience, blocs de compétences de chaque formation */
+.xstep p.xmeta{margin-top:4px;color:var(--mut);font-size:14px;line-height:1.45}
+.xstep .ml{max-width:68ch;margin-top:14px}
+.xstep .ml li{padding:9px 0;color:var(--ink-2)}
+.xstep .ml li:last-child{border-bottom:1px solid var(--rule)}
+.xph{margin:22px 0 0;color:var(--primary);font-size:14px;font-weight:640;letter-spacing:.01em;line-height:1.4}
+.xph:first-of-type{margin-top:16px}
+.xph+.ml,.xph+.xbl{margin-top:6px}
+.xbl{max-width:68ch;margin:14px 0 0;padding:0;list-style:none}
+.xbl li{display:grid;grid-template-columns:3.4em minmax(0,1fr);gap:12px;padding:9px 0;border-top:1px solid var(--rule);color:var(--ink-2);font-size:15.5px;line-height:1.5}
+.xbl li:last-child{border-bottom:1px solid var(--rule)}
+.xbl b{padding-top:2px;color:var(--primary);font-size:13.5px;font-weight:650;font-variant-numeric:tabular-nums}
+.xstep .more-link{margin-top:10px}
