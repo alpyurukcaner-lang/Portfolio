@@ -8,15 +8,15 @@ Version en ligne : https://alpyurukcaner-lang.github.io/Portfolio/
 
 Le site est statique : chaque page est un fichier `index.html` dans son propre dossier, ce qui donne des adresses lisibles qui se rechargent et se partagent.
 
+Le menu compte quatre rubriques, dans l’ordre où un recruteur les cherche : Accueil, Parcours, Compétences, Projets. Une cinquième, Contact, s’ajoute en bouton dès qu’une adresse e-mail est renseignée. Il n’y a aucun sous-menu : chaque rubrique ouvre une page d’entrée, qui renvoie vers ses pages de détail, et le fil d’Ariane permet de remonter.
+
 - `index.html` : l’accueil, façon profil : la photo en fond, la présentation, cinq stories à la une (Licence, Master, Projets, Alternance, Outils), puis une grille avec Licence GACO et Master EMP épinglés devant les projets. Les autres pages sont sur fond clair.
-- `licence/` : la vue d’ensemble de la licence (BUT GACO, parcours MCMO) : cinq compétences, trois années et projets phares.
-- `a-propos/` : parcours, valeurs de travail et chronologie.
-- `competences/` : les compétences des deux diplômes, la licence puis le master. Les cinq compétences de la licence (BUT GACO, parcours MCMO) ont chacune leur page, plus une page par niveau (`niveau-1/`, `niveau-2/`, `niveau-3/`) avec les apprentissages critiques, les traces et le bilan du niveau ; `competences/referentiel/` réunit les 64 apprentissages, avec une recherche. `competences/master-emp/` présente le Master Entrepreneuriat et management de projets, parcours Management de projets : ses huit blocs (fiche nationale RNCP42354) et les missions de l’année.
-- `experiences/` : l’alternance et les deux stages, chacun sur sa page.
-- `projets/` : la galerie, avec ses filtres, et huit études de cas.
+- `parcours/` : les expériences, les formations, la façon de travailler et la chronologie. Chaque expérience a sa page dans `experiences/` (l’alternance et les deux stages), avec ses missions, ses interlocuteurs et les compétences travaillées.
+- `competences/` : les compétences des deux diplômes, la licence puis le master. Les cinq compétences de la licence (BUT GACO, parcours MCMO) ont chacune leur page, avec les expériences et les projets associés, plus une page par niveau (`niveau-1/`, `niveau-2/`, `niveau-3/`) avec les apprentissages critiques, les traces et le bilan du niveau ; `competences/referentiel/` réunit les 64 apprentissages, avec une recherche. `competences/master-emp/` présente le Master Entrepreneuriat et management de projets, parcours Management de projets : ses huit blocs (fiche nationale RNCP42354) et les missions de l’année. `licence/` donne la vue d’ensemble de la licence : trois années et projets phares.
+- `projets/` : la galerie, avec ses filtres, et huit études de cas, chacune reliée à son expérience et à ses compétences.
 - `404.html`, `sitemap.xml`, `robots.txt`.
 
-Les anciennes adresses de la page unique (`#ac-31-06`, `#bc5`, `#annee2`…) redirigent vers la page correspondante.
+Les anciennes adresses `a-propos/` et `experiences/` renvoient vers `parcours/`, et celles de la page unique (`#ac-31-06`, `#bc5`, `#annee2`…) vers la page correspondante.
 
 ## Ressources
 

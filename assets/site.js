@@ -35,7 +35,7 @@ const setMenu = open => {
   menu.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
   sheet.hidden = !open;
   for (const el of $$('main, .foot')) el.inert = open;
-  if (open) $('a, summary', sheet).focus();
+  if (open) $('a', sheet).focus();
 };
 menu.addEventListener('click', () => setMenu(!d.body.classList.contains('open')));
 sheet.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
@@ -43,43 +43,6 @@ addEventListener('keydown', e => {
   if (e.key === 'Escape' && d.body.classList.contains('open')) { setMenu(false); menu.focus(); }
 });
 matchMedia('(min-width: 981px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
-
-/* ---------- menu déroulant des compétences ---------- */
-const dd = $('.dd');
-if (dd) {
-  const btn = $('.ddb', dd);
-  const panel = $('.ddp', dd);
-  const links = $$('a', panel);
-  let by = '', timer = 0;
-  const set = (open, how = '') => {
-    clearTimeout(timer);
-    if (open === !panel.hidden) { if (open && how === 'click') by = 'click'; return; }
-    by = open ? how : '';
-    btn.setAttribute('aria-expanded', String(open));
-    if (open) { panel.hidden = false; requestAnimationFrame(() => dd.classList.add('on')); }
-    else { dd.classList.remove('on'); panel.hidden = true; }
-  };
-  btn.addEventListener('click', () => {
-    if (!panel.hidden && by === 'hover') { by = 'click'; return; }
-    set(panel.hidden, 'click');
-  });
-  dd.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && !panel.hidden) { set(false); btn.focus(); return; }
-    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-      e.preventDefault();
-      if (panel.hidden) set(true, 'click');
-      const i = links.indexOf(d.activeElement);
-      const n = e.key === 'ArrowDown' ? (i + 1) % links.length : (i <= 0 ? links.length - 1 : i - 1);
-      links[n].focus();
-    }
-  });
-  dd.addEventListener('focusout', e => { if (!dd.contains(e.relatedTarget)) set(false); });
-  d.addEventListener('click', e => { if (!dd.contains(e.target)) set(false); });
-  if (fine.matches) {
-    dd.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { clearTimeout(timer); timer = setTimeout(() => set(true, 'hover'), 70); } });
-    dd.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse' && by === 'hover') { clearTimeout(timer); timer = setTimeout(() => set(false), 240); } });
-  }
-}
 
 /* ---------- stories à la une (accueil), comme sur Instagram ---------- */
 {
