@@ -657,12 +657,8 @@ ul.dlist li::before{content:"";position:absolute;left:9px;top:21px;width:12px;he
 .cyear span{display:block;margin-top:8px;color:var(--mut);font-size:15px}
 .cbody h3{font-size:clamp(19px,1.6vw,22px);font-weight:600;letter-spacing:-.015em;line-height:1.3}
 .cbody .tl{margin-top:12px}
-.xgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.xcard{display:grid;align-content:start;gap:6px;padding:24px;border:1px solid var(--rule);border-radius:var(--r);background:var(--surface);color:var(--ink);text-decoration:none;transition:border-color var(--t-fast),transform .6s var(--ease)}
-.xcard small{color:var(--mut);font-size:14px}
-.xcard b{font-size:20px;font-weight:620;letter-spacing:-.015em;line-height:1.25}
-.xcard span{color:var(--ink-2);font-size:15px}
-.xcard:hover{border-color:var(--primary);transform:translateY(-3px)}
+.tl a{color:var(--ink);text-decoration-color:var(--rule-2);text-underline-offset:4px}
+.tl a:hover{color:var(--primary);text-decoration-color:currentColor}
 .pv{color:var(--mut);font-size:14px}
 
 /* ---------- expériences ---------- */
@@ -716,14 +712,6 @@ ul.dlist li::before{content:"";position:absolute;left:9px;top:21px;width:12px;he
 /* ---------- page des compétences : tours, arborescence ---------- */
 .hub-g{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:32px clamp(32px,4vw,72px);align-items:center}
 .hubvis .hint{margin-top:10px}
-.tree{display:grid;gap:10px;margin:0;padding:0;list-style:none}
-.tree>li{padding:16px 20px;border:1px solid var(--rule);border-left:4px solid var(--dom);border-radius:12px;background:var(--bg)}
-.tree>li>a{display:inline-flex;align-items:center;gap:10px;font-size:18px;font-weight:620;letter-spacing:-.01em;text-decoration:none}
-.tree>li>a i{width:9px;height:9px;border-radius:50%;background:var(--dom)}
-.tree>li>a:hover{color:var(--dom)}
-.tree ul{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0;padding:0 0 0 19px;list-style:none}
-.tree ul a{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:1px solid var(--rule-2);border-radius:999px;background:var(--surface);color:var(--ink-2);font-size:14px;text-decoration:none}
-.tree ul a:hover{border-color:var(--dom);color:var(--ink)}
 
 /* ---------- niveau : jauge de progression ---------- */
 .lmeter{display:flex;gap:6px;width:min(260px,60%);margin-top:22px}
@@ -784,10 +772,12 @@ ul.dlist li::before{content:"";position:absolute;left:9px;top:21px;width:12px;he
 @media(max-width:760px){.mlist,.blocs{grid-template-columns:minmax(0,1fr)}.mband{padding:22px 22px 70px}.mband .dgo{top:auto;bottom:18px;margin-top:0;left:22px;right:auto}}
 
 /* ---------- accueil façon profil Instagram : en-tête sur la photo, stories à la une, grille ---------- */
-.land{position:relative;isolation:isolate;display:grid;align-items:end;min-height:100vh;min-height:100svh;padding:calc(var(--bar) + clamp(40px,8vh,96px)) var(--gut) clamp(28px,6vh,64px);overflow:hidden;background:#5b4a63;color:#fff;--tint:44,26,50;--o-top:.3;--o-mid:.3;--o-bot:.58;--o-left:.4}
-.land-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;filter:saturate(1.15) contrast(1.03) brightness(1.04)}
-.land::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(var(--tint),var(--o-top)) 0,rgba(var(--tint),0) 16%,rgba(var(--tint),0) 40%,rgba(var(--tint),var(--o-mid)) 64%,rgba(var(--tint),var(--o-bot)) 100%),linear-gradient(90deg,rgba(var(--tint),var(--o-left)) 0,rgba(var(--tint),calc(var(--o-left) * .45)) 36%,rgba(var(--tint),0) 60%)}
+.land{position:relative;isolation:isolate;display:grid;align-items:end;min-height:100vh;min-height:100svh;padding:calc(var(--bar) + clamp(40px,8vh,96px)) var(--gut) clamp(28px,6vh,64px);overflow:hidden;background:#4a5390;color:#fff;--tint:30,28,80;--o-top:.4;--o-mid:.54;--o-bot:.64;--o-left:.3}
+.land-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:var(--fp,50% 50%);filter:saturate(1.06) contrast(1.03) brightness(1.03)}
+.land::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(var(--tint),var(--o-top)) 0,rgba(var(--tint),0) 15%,rgba(var(--tint),0) 27%,rgba(var(--tint),var(--o-mid)) 50%,rgba(var(--tint),var(--o-bot)) 100%),linear-gradient(90deg,rgba(var(--tint),var(--o-left)) 0,rgba(var(--tint),0) 65%)}
 .js .land-bg{animation:settle 1.8s var(--ease) both}
+@media(min-width:761px) and (max-height:740px){.land-bg{object-position:50% 31%}}
+@media(min-width:761px) and (max-width:1100px) and (orientation:portrait){.land{--o-mid:.62;--o-bot:.74}}
 .btn.pv-off{flex-direction:column;align-items:flex-start;gap:0;border:1.5px dashed var(--field);background:var(--surface);color:var(--ink-2);box-shadow:none;cursor:default;line-height:1.2}
 .btn.pv-off small{color:var(--mut);font-size:12px;font-weight:500}
 .land .qr{display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;align-items:center;margin:14px 0 0;padding:12px 14px 12px 12px;border-radius:var(--r);background:#fff;color:var(--ink)}
@@ -936,8 +926,9 @@ html.st-open{overflow:hidden}
 }
 @media(max-width:520px){.igst{width:100vw;height:100svh;border-radius:0}}
 @media(max-width:980px){.land .qr{display:none}}
-@media(max-width:760px){.land{align-items:start;padding-top:calc(var(--bar) + 30vh);--m-a:.42;--m-b:.58;--m-c:.66}
-  .land::before{background:linear-gradient(180deg,rgba(var(--tint),.34) 0,rgba(var(--tint),0) 9%,rgba(var(--tint),0) 15%,rgba(var(--tint),var(--m-a)) 29%,rgba(var(--tint),var(--m-b)) 52%,rgba(var(--tint),var(--m-c)) 100%)}}
+@media(max-width:760px){.land-bg{object-position:var(--fpm,50% 50%)}
+  .land{align-items:start;padding-top:calc(var(--bar) + 30vh);--m-a:.54;--m-b:.64;--m-c:.72}
+  .land::before{background:linear-gradient(180deg,rgba(var(--tint),.38) 0,rgba(var(--tint),0) 9%,rgba(var(--tint),0) 16%,rgba(var(--tint),var(--m-a)) 31%,rgba(var(--tint),var(--m-b)) 52%,rgba(var(--tint),var(--m-c)) 100%)}}
 
 /* ---------- page du master : missions de l’année ---------- */
 .mmis{display:grid;margin:0;padding:0;list-style:none;counter-reset:mis}
@@ -976,7 +967,6 @@ html.st-open{overflow:hidden}
 @media(max-width:980px){
   .dgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.dgrid>*,.dgrid>:nth-child(n+4){grid-column:auto}.dgrid>:last-child{grid-column:1/-1}
   .k-domain .pgrid,.k-exp .pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .xgrid{grid-template-columns:minmax(0,1fr)}
   .foot .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}.foot .fb{grid-column:1/-1}
   .cta-band .wrap{grid-template-columns:minmax(0,1fr)}.cta-band .btn{grid-column:1;grid-row:auto;justify-self:start}
 }
